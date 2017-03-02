@@ -13,7 +13,7 @@ public String acceptChallenge() throws IOException {
 }
 ```
 
-## Facebook Parse Payload ( using Restlet )
+## Facebook Parse Payload and Response ( using Restlet )
 
 ```
 @Post
@@ -22,6 +22,11 @@ public Representation payload(Representation data) throws IOException {
 	Payload payload = FacebookBotUtils.parsePayload(newMessage);
 	String chatId = payload.entry().messaging().senderId();
 	String text = payload.entry().messaging().message().text();
+	getLogger().info(text);
+	// do what you want with the text
+	FacebookBot bot = new FacebookBot("TOKEN");
+	String response = bot.execute(new SendMessage(chat_id, text));
+	getLogger().info(response);
 	return null;
 }
 ```

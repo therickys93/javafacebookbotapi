@@ -41,7 +41,5 @@ public class FacebookBotUtils {
 		message.text = jsonObject.get("text").getAsString();
 		return message;
 	}
-
-	
 	
 }
