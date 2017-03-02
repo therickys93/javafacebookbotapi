@@ -4,4 +4,4 @@ pipelines:
   default:
     - step:
         script:
-          - ./gradlew clean check jacocoTestReport
+          - ./gradlew clean check jacocoTestReport shadowJar

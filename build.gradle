@@ -56,3 +56,9 @@ dependencies {
 pitest {
     targetClasses = [ "it.therickys93.facebookbot.*" ]
 }
+
+shadowJar {
+	archiveName 'javafacebookbotapi.jar'
+}
+
+shadowJar.mustRunAfter clean
