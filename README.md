@@ -9,7 +9,11 @@ This Api is written for my personal use.
 public String acceptChallenge() throws IOException {
 	Map<String, String> challenge = getQuery().getValuesMap();
 	Hub hub = new Hub(challenge);
-	return hub.challenge();
+	if(hub.ok()) {
+		return hub.challenge();
+	} else {
+		return Hub.TOKEN_ERROR;
+	}
 }
 ```
 
