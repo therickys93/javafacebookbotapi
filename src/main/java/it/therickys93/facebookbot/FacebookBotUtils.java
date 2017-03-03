@@ -39,6 +39,11 @@ public class FacebookBotUtils {
 		message.id = jsonObject.get("mid").getAsString();
 		message.seq = jsonObject.get("seq").getAsBigInteger().intValue();
 		message.text = jsonObject.get("text").getAsString();
+		if(jsonObject.get("quick_reply") != null){
+			message.quickReplyText = jsonObject.get("quick_reply").getAsJsonObject().get("payload").getAsString();
+		} else {
+			message.quickReplyText = null;
+		}
 		return message;
 	}
 	

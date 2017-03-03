@@ -21,13 +21,13 @@ public class SendChatAction implements SendRequest{
 	}
 
 	@Override
-	public String toJson() {
+	public JsonObject toJson() {
 		JsonObject message = new JsonObject();
 		JsonObject rec = new JsonObject();
 		rec.addProperty("id", this.id);
 		message.add("recipient", rec);
 		message.addProperty("sender_action", this.chatAction);
-		return message.toString();
+		return message;
 	}
 
 }

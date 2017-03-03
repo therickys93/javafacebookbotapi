@@ -5,6 +5,7 @@ public class Message {
 	String id;
 	int seq;
 	String text;
+	String quickReplyText;
 	
 	Message() {
 		
@@ -20,6 +21,10 @@ public class Message {
 
 	public String text() {
 		return this.text;
+	}
+
+	public String quickReplyText() {
+		return this.quickReplyText;
 	}
 	
 }

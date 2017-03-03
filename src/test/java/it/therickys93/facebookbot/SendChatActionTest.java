@@ -20,7 +20,7 @@ public class SendChatActionTest {
 		SendChatAction chatAction = new SendChatAction("USER_ID", ChatAction.TYPING_ON);
 		assertEquals("USER_ID", chatAction.id());
 		assertEquals("typing_on", chatAction.action());
-		assertEquals("{\"recipient\":{\"id\":\"USER_ID\"},\"sender_action\":\"typing_on\"}", chatAction.toJson());
+		assertEquals("{\"recipient\":{\"id\":\"USER_ID\"},\"sender_action\":\"typing_on\"}", chatAction.toJson().toString());
 	}
 	
 	public void usage() throws IOException {

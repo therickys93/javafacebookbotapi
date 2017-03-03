@@ -27,7 +27,7 @@ public class FacebookBot {
 	
 	public String execute(SendRequest request) throws IOException {
 		final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-		RequestBody body = RequestBody.create(JSON, request.toJson());
+		RequestBody body = RequestBody.create(JSON, request.toJson().toString());
 		Request requestAdd = new Request.Builder().url(this.endpoint).post(body).build();
 		Response response = client.newCall(requestAdd).execute();
 		return response.body().string();
