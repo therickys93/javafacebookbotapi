@@ -32,14 +32,14 @@ public class SendMessage implements SendRequest{
 		JsonObject mes = new JsonObject();
 		mes.addProperty("text", this.text);
 		message.add("recipient", rec);
-		message.add("message", mes);
 		if(this.replies != null){
 			JsonArray repliesArray = new JsonArray();
 			for(int index = 0; index < this.replies.size(); index++){
 				repliesArray.add(this.replies.get(index).toJson());
 			}
-			message.add("quick_replies", repliesArray);
+			mes.add("quick_replies", repliesArray);
 		}
+		message.add("message", mes);
 		return message;
 	}
 
