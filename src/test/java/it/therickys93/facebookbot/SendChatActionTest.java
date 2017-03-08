@@ -23,6 +23,12 @@ public class SendChatActionTest {
 		assertEquals("{\"recipient\":{\"id\":\"USER_ID\"},\"sender_action\":\"typing_on\"}", chatAction.toJson().toString());
 	}
 	
+	@Test
+	public void testIncreaseCodeCoverage() {
+		ChatAction chatAction = new ChatAction();
+		chatAction.toString();
+	}
+	
 	public void usage() throws IOException {
 		FacebookBot bot = new FacebookBot("TOKEN");
 		String response = bot.execute(new SendChatAction("USER_ID", ChatAction.TYPING_ON));

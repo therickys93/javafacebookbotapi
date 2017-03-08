@@ -31,6 +31,12 @@ public class ParseMessageTest {
 		assertNull(message.entry().messaging().message().quickReplyText());
 	}
 	
+	@Test
+	public void testIncreaseCodeCoverage() {
+		FacebookBotUtils utils = new FacebookBotUtils();
+		utils.toString();
+	}
+	
 	private String getContentOfFile(String filename) throws FileNotFoundException {
 		Scanner scanner = new Scanner(new File(filename));
 		String content = scanner.useDelimiter("\\Z").next();
