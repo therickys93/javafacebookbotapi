@@ -23,12 +23,20 @@ public class ParseMessageTest {
 		assertEquals(73, message.entry().messaging().message().seq());
 		assertEquals("hello, world!", message.entry().messaging().message().text());
 		assertEquals("DEVELOPER_DEFINED_PAYLOAD", message.entry().messaging().message().quickReplyText());
+		assertTrue(message.ok());
 	}
 	
 	@Test
 	public void testNoQuickReply() throws FileNotFoundException {
 		Payload message = FacebookBotUtils.parsePayload(getContentOfFile("src/test/resources/request2.txt"));
+		assertTrue(message.ok());
 		assertNull(message.entry().messaging().message().quickReplyText());
+	}
+	
+	@Test
+	public void testNoTextMessage() throws FileNotFoundException {
+		Payload payload = FacebookBotUtils.parsePayload(getContentOfFile("src/test/resources/notext.txt"));
+		assertFalse(payload.ok());
 	}
 	
 	@Test

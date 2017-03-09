@@ -11,11 +11,16 @@ public class FacebookBotUtils {
 		JsonParser parser = new JsonParser();
 		JsonObject object = parser.parse(newMessage).getAsJsonObject();
 		message.object = object.get("object").getAsString();
-		message.entry = parseEntry(object.get("entry").getAsJsonArray().get(0));
+		try {
+			message.entry = parseEntry(object.get("entry").getAsJsonArray().get(0));
+			message.ok = true;
+		} catch(NullPointerException e) {
+			message.ok = false;
+		}
 		return message;
 	}
 	
-	private static Entry parseEntry(JsonElement newEntry) {
+	private static Entry parseEntry(JsonElement newEntry) throws NullPointerException {
 		JsonObject object = newEntry.getAsJsonObject();
 		Entry entry = new Entry();
 		entry.id = object.get("id").getAsString();
@@ -24,7 +29,7 @@ public class FacebookBotUtils {
 		return entry;
 	}
 
-	private static Messaging parseMessagging(JsonElement jsonElement) {
+	private static Messaging parseMessagging(JsonElement jsonElement) throws NullPointerException{
 		JsonObject object = jsonElement.getAsJsonObject();
 		Messaging messagging = new Messaging();
 		messagging.senderId = object.get("sender").getAsJsonObject().get("id").getAsString();
@@ -34,7 +39,7 @@ public class FacebookBotUtils {
 		return messagging;
 	}
 
-	private static Message parseMessage(JsonObject jsonObject) {
+	private static Message parseMessage(JsonObject jsonObject) throws NullPointerException {
 		Message message = new Message();
 		message.id = jsonObject.get("mid").getAsString();
 		message.seq = jsonObject.get("seq").getAsBigInteger().intValue();

@@ -4,6 +4,7 @@ public class Payload {
 
 	String object;
 	Entry entry;
+	boolean ok;
 	
 	public String object() {
 		return this.object;
@@ -15,6 +16,14 @@ public class Payload {
 
 	public Entry entry() {
 		return this.entry;
+	}
+
+	/**
+	 * Not able to Parse the message because I receive something that, for now, I cannot understand
+	 * @return true if able, false not
+	 */
+	public boolean ok() {
+		return this.ok;
 	}
 	
 }
