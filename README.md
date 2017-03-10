@@ -1,11 +1,12 @@
 # Java Facebook Bot API
 
-This Api is written for my personal use.
+This Api is written for my personal use and so it does not have all the features.
+If you want to make some changes feel free to fork and use it.
 
 ## Facebook Developers Page configuration
 
 In the page where you create the app you need to set the webhook and what your bot is going to accept.
-This implementation of the bot api works only with the "messages" webhook.
+This implementation of the bot api works only with the "messages" and "messages_postbacks" webhook.
 
 ## Facebook Challenge ( using Restlet )
 
@@ -43,8 +44,21 @@ public Representation payload(Representation data) throws IOException {
 
 ## Use it in gradle
 
-After download the jar file, create a folder in the root of the project named 'libs', add the jar in the new folder and finally add this line in the gradle dependencies
+I don't use standard repositories so you have to use Jitpack.
+
+* First in your root build.gradle file add this:
 
 ```
-compile fileTree(dir: 'libs', include: ['*.jar'])
+allprojects {
+        repositories {
+                ...
+                maven { url 'https://jitpack.io' }
+        }
+}
+```
+
+* Finally in your dependencies add: ( this is only a thought )
+
+```
+compile 'com.github.therickys93:javafacebookbotapi:0.1.0'
 ```
