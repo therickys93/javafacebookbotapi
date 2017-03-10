@@ -2,12 +2,12 @@ package it.therickys93.facebookbot;
 
 import com.google.gson.JsonObject;
 
-public class SendChatAction implements Sendable{
+public class SendSenderAction implements Sendable{
 
 	private String id;
 	private String chatAction;
 	
-	public SendChatAction(String id, String chatAction) {
+	public SendSenderAction(String id, String chatAction) {
 		this.id = id;
 		this.chatAction = chatAction;
 	}

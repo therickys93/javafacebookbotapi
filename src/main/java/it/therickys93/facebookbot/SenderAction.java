@@ -1,6 +1,6 @@
 package it.therickys93.facebookbot;
 
-public class ChatAction {
+public class SenderAction {
 
 	public static final String TYPING_ON = "typing_on";
 	public static final String TYPING_OFF = "typing_off";

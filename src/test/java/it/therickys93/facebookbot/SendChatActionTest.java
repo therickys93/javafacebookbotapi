@@ -10,14 +10,14 @@ public class SendChatActionTest {
 
 	@Test
 	public void testOne() {
-		assertEquals("typing_on", ChatAction.TYPING_ON);
-		assertEquals("typing_off", ChatAction.TYPING_OFF);
-		assertEquals("mark_seen", ChatAction.MARK_SEEN);
+		assertEquals("typing_on", SenderAction.TYPING_ON);
+		assertEquals("typing_off", SenderAction.TYPING_OFF);
+		assertEquals("mark_seen", SenderAction.MARK_SEEN);
 	}
 	
 	@Test
 	public void testTwo() {
-		SendChatAction chatAction = new SendChatAction("USER_ID", ChatAction.TYPING_ON);
+		SendSenderAction chatAction = new SendSenderAction("USER_ID", SenderAction.TYPING_ON);
 		assertEquals("USER_ID", chatAction.id());
 		assertEquals("typing_on", chatAction.action());
 		assertEquals("{\"recipient\":{\"id\":\"USER_ID\"},\"sender_action\":\"typing_on\"}", chatAction.toJson().toString());
@@ -25,13 +25,13 @@ public class SendChatActionTest {
 	
 	@Test
 	public void testIncreaseCodeCoverage() {
-		ChatAction chatAction = new ChatAction();
+		SenderAction chatAction = new SenderAction();
 		chatAction.toString();
 	}
 	
 	public void usage() throws IOException {
 		FacebookBot bot = new FacebookBot("TOKEN");
-		String response = bot.execute(new SendChatAction("USER_ID", ChatAction.TYPING_ON));
+		String response = bot.execute(new SendSenderAction("USER_ID", SenderAction.TYPING_ON));
 		System.out.println(response);
 	}
 	
