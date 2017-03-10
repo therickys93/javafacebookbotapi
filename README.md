@@ -14,7 +14,7 @@ This implementation of the bot api works only with the "messages" and "messages_
 @GET
 public String acceptChallenge() throws IOException {
 	Map<String, String> challenge = getQuery().getValuesMap();
-	Hub hub = new Hub(challenge);
+	Hub hub = new Hub(challenge, VERIFY_TOKEN);
 	if(hub.ok()) {
 		return hub.challenge();
 	} else {
