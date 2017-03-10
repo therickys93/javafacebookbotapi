@@ -45,6 +45,55 @@ public class ParseMessageTest {
 		utils.toString();
 	}
 	
+	@Test
+	public void testMessageToString() throws FileNotFoundException{
+		Payload payload = FacebookBotUtils.parsePayload(getContentOfFile("src/test/resources/request.txt"));
+		Message message = payload.entry().messaging().message();
+		assertEquals(messageToStringOutput(), message.toString());
+	}
+	
+	@Test
+	public void testMessaggingToString() throws FileNotFoundException {
+		Payload payload = FacebookBotUtils.parsePayload(getContentOfFile("src/test/resources/request.txt"));
+		Messaging messaging = payload.entry().messaging();
+		assertEquals(messagingToStringOutput(), messaging.toString());
+	}
+	
+	@Test
+	public void testEntryToString() throws FileNotFoundException {
+		Payload payload = FacebookBotUtils.parsePayload(getContentOfFile("src/test/resources/request.txt"));
+		Entry entry = payload.entry();
+		assertEquals(entryToStringOutput(), entry.toString());
+	}
+	
+	@Test
+	public void testPayloadToString() throws FileNotFoundException {
+		Payload payload = FacebookBotUtils.parsePayload(getContentOfFile("src/test/resources/request.txt"));
+		assertEquals(payloadToStringOutput(), payload.toString());
+	}
+	
+	private String payloadToStringOutput() {
+		return "Payload{object=page, entry="
+				+ "Entry{id=PAGE_ID, time=1458692752478, messaging="
+				+ "Messaging{sender=USER_ID, recipient=PAGE_ID, timestamp=1458692752478, message="
+				+ "Message{id=mid.1457764197618:41d102a3e1ae206a38, seq=73, text=hello, world!, quick_reply=DEVELOPER_DEFINED_PAYLOAD}}}}";
+	}
+	
+	private String entryToStringOutput() {
+		return "Entry{id=PAGE_ID, time=1458692752478, messaging="
+				+ "Messaging{sender=USER_ID, recipient=PAGE_ID, timestamp=1458692752478, message="
+				+ "Message{id=mid.1457764197618:41d102a3e1ae206a38, seq=73, text=hello, world!, quick_reply=DEVELOPER_DEFINED_PAYLOAD}}}";
+	}
+	
+	private String messagingToStringOutput() {
+		return "Messaging{sender=USER_ID, recipient=PAGE_ID, timestamp=1458692752478, message="
+				+ "Message{id=mid.1457764197618:41d102a3e1ae206a38, seq=73, text=hello, world!, quick_reply=DEVELOPER_DEFINED_PAYLOAD}}";
+	}
+	
+	private String messageToStringOutput() {
+		return "Message{id=mid.1457764197618:41d102a3e1ae206a38, seq=73, text=hello, world!, quick_reply=DEVELOPER_DEFINED_PAYLOAD}";
+	}
+	
 	private String getContentOfFile(String filename) throws FileNotFoundException {
 		Scanner scanner = new Scanner(new File(filename));
 		String content = scanner.useDelimiter("\\Z").next();

@@ -23,5 +23,12 @@ public class Entry {
 	Entry() {
 		
 	}
+	
+	@Override
+	public String toString() {
+		String response = "";
+		response += "Entry{id="+this.id+", time="+this.time+", messaging="+this.messaging.toString()+"}";
+		return response;
+	}
 
 }

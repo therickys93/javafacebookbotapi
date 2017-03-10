@@ -26,4 +26,11 @@ public class Payload {
 		return this.ok;
 	}
 	
+	@Override
+	public String toString() {
+		String response = "";
+		response += "Payload{object="+this.object+", entry="+this.entry.toString()+"}";
+		return response;
+	}
+	
 }

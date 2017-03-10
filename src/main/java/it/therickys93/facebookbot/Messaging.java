@@ -28,5 +28,12 @@ public class Messaging {
 	public BigInteger timestamp() {
 		return this.timestamp;
 	}
+	
+	@Override
+	public String toString() {
+		String response = "";
+		response += "Messaging{sender="+this.senderId+", recipient="+this.recipientId+", timestamp="+this.timestamp+", message="+this.message.toString()+"}";
+		return response;
+	}
 
 }

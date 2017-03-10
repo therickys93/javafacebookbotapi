@@ -27,4 +27,11 @@ public class Message {
 		return this.quickReplyText;
 	}
 	
+	@Override
+	public String toString() {
+		String response = "";
+		response += "Message{id="+this.id+", seq="+this.seq+", text="+this.text+", quick_reply="+this.quickReplyText+"}";
+		return response;
+	}
+	
 }
