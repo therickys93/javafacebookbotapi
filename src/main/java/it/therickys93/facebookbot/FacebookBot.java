@@ -12,6 +12,7 @@ import okhttp3.Response;
 public class FacebookBot {
 
 	public static final String API_URL = "https://graph.facebook.com/v2.6/me/messages?access_token=";
+	// https://graph.facebook.com/v2.6/me/messenger_profile?access_token=
 	private String token;
 	String endpoint;
 	OkHttpClient client;
