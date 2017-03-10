@@ -2,7 +2,7 @@ package it.therickys93.facebookbot;
 
 import com.google.gson.JsonObject;
 
-public class QuickReply implements SendRequest {
+public class QuickReply implements Sendable {
 
 	private String type;
 	private String title;

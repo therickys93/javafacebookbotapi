@@ -25,7 +25,7 @@ public class FacebookBot {
 		return this.token;
 	}
 	
-	public String execute(SendRequest request) throws IOException {
+	public String execute(Sendable request) throws IOException {
 		final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 		RequestBody body = RequestBody.create(JSON, request.toJson().toString());
 		Request requestAdd = new Request.Builder().url(this.endpoint).post(body).build();

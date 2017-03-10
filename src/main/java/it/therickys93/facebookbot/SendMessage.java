@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-public class SendMessage implements SendRequest{
+public class SendMessage implements Sendable{
 
 	private String id;
 	private String text;

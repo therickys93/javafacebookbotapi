@@ -2,7 +2,7 @@ package it.therickys93.facebookbot;
 
 import com.google.gson.JsonObject;
 
-public class SendChatAction implements SendRequest{
+public class SendChatAction implements Sendable{
 
 	private String id;
 	private String chatAction;
