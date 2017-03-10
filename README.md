@@ -12,7 +12,8 @@ public String acceptChallenge() throws IOException {
 	if(hub.ok()) {
 		return hub.challenge();
 	} else {
-		return Hub.TOKEN_ERROR;
+		getLogger().warning(Hub.TOKEN_ERROR);
+     	return null;
 	}
 }
 ```
