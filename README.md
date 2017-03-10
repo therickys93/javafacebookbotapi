@@ -2,6 +2,11 @@
 
 This Api is written for my personal use.
 
+## Facebook Developers Page configuration
+
+In the page where you create the app you need to set the webhook and what your bot is going to accept.
+This implementation of the bot api works only with the "messages" webhook.
+
 ## Facebook Challenge ( using Restlet )
 
 ```
