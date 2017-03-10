@@ -26,8 +26,6 @@ public class SendMessageTest {
 	public void testTwo() {
 		FacebookBot bot = new FacebookBot("BOT_TOKEN");
 		assertEquals("BOT_TOKEN", bot.token());
-		assertEquals("https://graph.facebook.com/v2.6/me/messages?access_token=", FacebookBot.API_URL);
-		assertEquals("https://graph.facebook.com/v2.6/me/messages?access_token=BOT_TOKEN", bot.endpoint);
 	}
 	
 	@Test

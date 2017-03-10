@@ -13,5 +13,10 @@ public class DeleteGreetingText implements Sendable {
 		object.add("fields", fields);
 		return object;
 	}
+
+	@Override
+	public String endpoint() {
+		return "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=";
+	}
 	
 }

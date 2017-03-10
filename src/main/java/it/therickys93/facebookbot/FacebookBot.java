@@ -11,15 +11,11 @@ import okhttp3.Response;
 
 public class FacebookBot {
 
-	public static final String API_URL = "https://graph.facebook.com/v2.6/me/messages?access_token=";
-	// https://graph.facebook.com/v2.6/me/messenger_profile?access_token=
 	private String token;
-	String endpoint;
 	OkHttpClient client;
 	
 	public FacebookBot(String token) {
 		this.token = token;
-		this.endpoint = API_URL + token;
 		client = new OkHttpClient();
 	}
 
@@ -30,7 +26,7 @@ public class FacebookBot {
 	public String execute(Sendable request) throws IOException {
 		final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 		RequestBody body = RequestBody.create(JSON, request.toJson().toString());
-		Request requestAdd = new Request.Builder().url(this.endpoint).post(body).build();
+		Request requestAdd = new Request.Builder().url(request.endpoint() + this.token).post(body).build();
 		Response response = client.newCall(requestAdd).execute();
 		return response.body().string();
 	}

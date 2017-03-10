@@ -33,4 +33,9 @@ public class SendSenderAction implements Sendable{
 		return message;
 	}
 
+	@Override
+	public String endpoint() {
+		return "https://graph.facebook.com/v2.6/me/messages?access_token=";
+	}
+
 }

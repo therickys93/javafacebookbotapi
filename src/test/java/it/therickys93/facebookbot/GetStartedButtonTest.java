@@ -45,4 +45,22 @@ public class GetStartedButtonTest {
 		response.toString();
 	}
 	
+	public void usageDeleteGetStartedButton() throws IOException {
+		FacebookBot bot = new FacebookBot("");
+		String response = bot.execute(new DeleteGetStartedButton());
+		response.toString();
+	}
+	
+	public void usageSetGreetingText() throws IOException {
+		FacebookBot bot = new FacebookBot("");
+		String response = bot.execute(new SetGreetingText("text"));
+		response.toString();
+	}
+	
+	public void usageDeleteGreetingText() throws IOException {
+		FacebookBot bot = new FacebookBot("");
+		String response = bot.execute(new DeleteGreetingText());
+		response.toString();
+	}
+	
 }

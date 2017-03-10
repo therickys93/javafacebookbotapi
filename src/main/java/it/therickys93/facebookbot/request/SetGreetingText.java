@@ -27,4 +27,9 @@ public class SetGreetingText implements Sendable {
 		return this.text;
 	}
 
+	@Override
+	public String endpoint() {
+		return "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=";
+	}
+
 }

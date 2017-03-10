@@ -38,4 +38,9 @@ public class QuickReply implements Sendable {
 		return jsonObject;
 	}
 
+	@Override
+	public String endpoint() {
+		return "https://graph.facebook.com/v2.6/me/messages?access_token=";
+	}
+
 }
