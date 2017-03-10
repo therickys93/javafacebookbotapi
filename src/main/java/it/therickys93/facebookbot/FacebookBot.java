@@ -2,6 +2,7 @@ package it.therickys93.facebookbot;
 
 import java.io.IOException;
 
+import it.therickys93.facebookbot.request.Sendable;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

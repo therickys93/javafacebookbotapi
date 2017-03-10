@@ -8,6 +8,9 @@ import java.util.List;
 
 import org.junit.Test;
 
+import it.therickys93.facebookbot.request.QuickReply;
+import it.therickys93.facebookbot.request.SendMessage;
+
 public class SendMessageTest {
 	
 	@Test

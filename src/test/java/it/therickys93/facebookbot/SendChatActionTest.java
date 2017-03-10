@@ -6,6 +6,9 @@ import java.io.IOException;
 
 import org.junit.Test;
 
+import it.therickys93.facebookbot.request.SendSenderAction;
+import it.therickys93.facebookbot.request.SenderAction;
+
 public class SendChatActionTest {
 
 	@Test

@@ -1,4 +1,4 @@
-package it.therickys93.facebookbot;
+package it.therickys93.facebookbot.request;
 
 public class SenderAction {
 

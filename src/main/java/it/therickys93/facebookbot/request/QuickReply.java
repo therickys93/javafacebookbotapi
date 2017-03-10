@@ -1,9 +1,12 @@
-package it.therickys93.facebookbot;
+package it.therickys93.facebookbot.request;
 
 import com.google.gson.JsonObject;
 
 public class QuickReply implements Sendable {
 
+	private static final String PAYLOAD = "payload";
+	private static final String TITLE = "title";
+	private static final String CONTENT_TYPE = "content_type";
 	private String type;
 	private String title;
 	private String payload;
@@ -31,9 +34,9 @@ public class QuickReply implements Sendable {
 	@Override
 	public JsonObject toJson() {
 		JsonObject jsonObject = new JsonObject();
-		jsonObject.addProperty("content_type", this.type);
-		jsonObject.addProperty("title", this.title);
-		jsonObject.addProperty("payload", this.payload);
+		jsonObject.addProperty(CONTENT_TYPE, this.type);
+		jsonObject.addProperty(TITLE, this.title);
+		jsonObject.addProperty(PAYLOAD, this.payload);
 		return jsonObject;
 	}
 

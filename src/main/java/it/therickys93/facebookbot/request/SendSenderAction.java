@@ -1,9 +1,12 @@
-package it.therickys93.facebookbot;
+package it.therickys93.facebookbot.request;
 
 import com.google.gson.JsonObject;
 
 public class SendSenderAction implements Sendable{
 
+	private static final String SENDER_ACTION = "sender_action";
+	private static final String RECIPIENT = "recipient";
+	private static final String ID = "id";
 	private String id;
 	private String chatAction;
 	
@@ -24,9 +27,9 @@ public class SendSenderAction implements Sendable{
 	public JsonObject toJson() {
 		JsonObject message = new JsonObject();
 		JsonObject rec = new JsonObject();
-		rec.addProperty("id", this.id);
-		message.add("recipient", rec);
-		message.addProperty("sender_action", this.chatAction);
+		rec.addProperty(ID, this.id);
+		message.add(RECIPIENT, rec);
+		message.addProperty(SENDER_ACTION, this.chatAction);
 		return message;
 	}
 

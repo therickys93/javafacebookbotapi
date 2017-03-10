@@ -8,11 +8,17 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
+import it.therickys93.facebookbot.model.Entry;
+import it.therickys93.facebookbot.model.FacebookBotParser;
+import it.therickys93.facebookbot.model.Message;
+import it.therickys93.facebookbot.model.Messaging;
+import it.therickys93.facebookbot.model.Payload;
+
 public class ParseMessageTest {
 	
 	@Test
 	public void testMessage() throws FileNotFoundException {
-		Payload message = FacebookBotUtils.parsePayload(getContentOfFile("src/test/resources/request.txt"));
+		Payload message = FacebookBotParser.parsePayload(getContentOfFile("src/test/resources/request.txt"));
 		assertEquals("page", message.object());
 		assertEquals("PAGE_ID", message.entry().id());
 		assertEquals("1458692752478", message.entry().time().toString());
@@ -28,47 +34,47 @@ public class ParseMessageTest {
 	
 	@Test
 	public void testNoQuickReply() throws FileNotFoundException {
-		Payload message = FacebookBotUtils.parsePayload(getContentOfFile("src/test/resources/request2.txt"));
+		Payload message = FacebookBotParser.parsePayload(getContentOfFile("src/test/resources/request2.txt"));
 		assertTrue(message.ok());
 		assertNull(message.entry().messaging().message().quickReplyText());
 	}
 	
 	@Test
 	public void testNoTextMessage() throws FileNotFoundException {
-		Payload payload = FacebookBotUtils.parsePayload(getContentOfFile("src/test/resources/notext.txt"));
+		Payload payload = FacebookBotParser.parsePayload(getContentOfFile("src/test/resources/notext.txt"));
 		assertFalse(payload.ok());
 	}
 	
 	@Test
 	public void testIncreaseCodeCoverage() {
-		FacebookBotUtils utils = new FacebookBotUtils();
+		FacebookBotParser utils = new FacebookBotParser();
 		utils.toString();
 	}
 	
 	@Test
 	public void testMessageToString() throws FileNotFoundException{
-		Payload payload = FacebookBotUtils.parsePayload(getContentOfFile("src/test/resources/request.txt"));
+		Payload payload = FacebookBotParser.parsePayload(getContentOfFile("src/test/resources/request.txt"));
 		Message message = payload.entry().messaging().message();
 		assertEquals(messageToStringOutput(), message.toString());
 	}
 	
 	@Test
 	public void testMessaggingToString() throws FileNotFoundException {
-		Payload payload = FacebookBotUtils.parsePayload(getContentOfFile("src/test/resources/request.txt"));
+		Payload payload = FacebookBotParser.parsePayload(getContentOfFile("src/test/resources/request.txt"));
 		Messaging messaging = payload.entry().messaging();
 		assertEquals(messagingToStringOutput(), messaging.toString());
 	}
 	
 	@Test
 	public void testEntryToString() throws FileNotFoundException {
-		Payload payload = FacebookBotUtils.parsePayload(getContentOfFile("src/test/resources/request.txt"));
+		Payload payload = FacebookBotParser.parsePayload(getContentOfFile("src/test/resources/request.txt"));
 		Entry entry = payload.entry();
 		assertEquals(entryToStringOutput(), entry.toString());
 	}
 	
 	@Test
 	public void testPayloadToString() throws FileNotFoundException {
-		Payload payload = FacebookBotUtils.parsePayload(getContentOfFile("src/test/resources/request.txt"));
+		Payload payload = FacebookBotParser.parsePayload(getContentOfFile("src/test/resources/request.txt"));
 		assertEquals(payloadToStringOutput(), payload.toString());
 	}
 	
