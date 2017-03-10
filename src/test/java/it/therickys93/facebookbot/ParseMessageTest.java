@@ -42,7 +42,21 @@ public class ParseMessageTest {
 	@Test
 	public void testNoTextMessage() throws FileNotFoundException {
 		Payload payload = FacebookBotParser.parsePayload(getContentOfFile("src/test/resources/notext.txt"));
+		assertTrue(payload.ok());
+	}
+	
+	@Test
+	public void testNothingMessage() throws FileNotFoundException {
+		Payload payload = FacebookBotParser.parsePayload(getContentOfFile("src/test/resources/nothing.txt"));
 		assertFalse(payload.ok());
+	}
+	
+	@Test
+	public void testPostBack() throws FileNotFoundException {
+		Payload payload = FacebookBotParser.parsePayload(getContentOfFile("src/test/resources/postbacks.txt"));
+		assertEquals("Messaging{sender=USER_ID, recipient=PAGE_ID, timestamp=1458692752478, postback_payload=USER_DEFINED_PAYLOAD, message=null}", payload.entry().messaging().toString());
+		assertEquals("USER_DEFINED_PAYLOAD", payload.entry().messaging().postbackPayload());
+		assertNull(payload.entry().messaging().message());
 	}
 	
 	@Test
@@ -81,18 +95,18 @@ public class ParseMessageTest {
 	private String payloadToStringOutput() {
 		return "Payload{object=page, entry="
 				+ "Entry{id=PAGE_ID, time=1458692752478, messaging="
-				+ "Messaging{sender=USER_ID, recipient=PAGE_ID, timestamp=1458692752478, message="
+				+ "Messaging{sender=USER_ID, recipient=PAGE_ID, timestamp=1458692752478, postback_payload=null, message="
 				+ "Message{id=mid.1457764197618:41d102a3e1ae206a38, seq=73, text=hello, world!, quick_reply=DEVELOPER_DEFINED_PAYLOAD}}}}";
 	}
 	
 	private String entryToStringOutput() {
 		return "Entry{id=PAGE_ID, time=1458692752478, messaging="
-				+ "Messaging{sender=USER_ID, recipient=PAGE_ID, timestamp=1458692752478, message="
+				+ "Messaging{sender=USER_ID, recipient=PAGE_ID, timestamp=1458692752478, postback_payload=null, message="
 				+ "Message{id=mid.1457764197618:41d102a3e1ae206a38, seq=73, text=hello, world!, quick_reply=DEVELOPER_DEFINED_PAYLOAD}}}";
 	}
 	
 	private String messagingToStringOutput() {
-		return "Messaging{sender=USER_ID, recipient=PAGE_ID, timestamp=1458692752478, message="
+		return "Messaging{sender=USER_ID, recipient=PAGE_ID, timestamp=1458692752478, postback_payload=null, message="
 				+ "Message{id=mid.1457764197618:41d102a3e1ae206a38, seq=73, text=hello, world!, quick_reply=DEVELOPER_DEFINED_PAYLOAD}}";
 	}
 	

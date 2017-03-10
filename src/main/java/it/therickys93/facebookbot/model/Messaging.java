@@ -8,6 +8,7 @@ public class Messaging {
 	String recipientId;
 	BigInteger timestamp;
 	Message message;
+	String postbackPayload;
 	
 	public String senderId() {
 		return this.senderId;
@@ -32,8 +33,17 @@ public class Messaging {
 	@Override
 	public String toString() {
 		String response = "";
-		response += "Messaging{sender="+this.senderId+", recipient="+this.recipientId+", timestamp="+this.timestamp+", message="+this.message.toString()+"}";
+		response += "Messaging{sender="
+				+ ""+this.senderId+", "
+						+ "recipient="+this.recipientId+""
+								+ ", timestamp="+this.timestamp+""
+										+ ", postback_payload=" + this.postbackPayload
+										+ ", message="+this.message+"}";
 		return response;
+	}
+
+	public String postbackPayload() {
+		return this.postbackPayload;
 	}
 
 }

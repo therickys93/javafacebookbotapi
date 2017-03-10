@@ -27,7 +27,7 @@ public class Entry {
 	@Override
 	public String toString() {
 		String response = "";
-		response += "Entry{id="+this.id+", time="+this.time+", messaging="+this.messaging.toString()+"}";
+		response += "Entry{id="+this.id+", time="+this.time+", messaging="+this.messaging+"}";
 		return response;
 	}
 

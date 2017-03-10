@@ -29,7 +29,7 @@ public class Payload {
 	@Override
 	public String toString() {
 		String response = "";
-		response += "Payload{object="+this.object+", entry="+this.entry.toString()+"}";
+		response += "Payload{object="+this.object+", entry="+this.entry+"}";
 		return response;
 	}
 	

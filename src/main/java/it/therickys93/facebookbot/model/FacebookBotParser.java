@@ -35,7 +35,7 @@ public class FacebookBotParser {
 		return message;
 	}
 	
-	private static Entry parseEntry(JsonElement newEntry) throws NullPointerException {
+	private static Entry parseEntry(JsonElement newEntry) {
 		JsonObject object = newEntry.getAsJsonObject();
 		Entry entry = new Entry();
 		entry.id = object.get(ENTRY_ID).getAsString();
@@ -44,25 +44,33 @@ public class FacebookBotParser {
 		return entry;
 	}
 
-	private static Messaging parseMessagging(JsonElement jsonElement) throws NullPointerException{
+	private static Messaging parseMessagging(JsonElement jsonElement) {
 		JsonObject object = jsonElement.getAsJsonObject();
 		Messaging messagging = new Messaging();
 		messagging.senderId = object.get(MESSAGING_SENDER).getAsJsonObject().get(ENTRY_ID).getAsString();
 		messagging.recipientId = object.get(MESSAGING_RECIPIENT).getAsJsonObject().get(ENTRY_ID).getAsString();
 		messagging.timestamp = object.get(MESSAGING_TIMESTAMP).getAsBigInteger();
-		messagging.message = parseMessage(object.get(MESSAGE).getAsJsonObject());
+		if(object.get("postback") != null) {
+			messagging.postbackPayload = object.get("postback").getAsJsonObject().get("payload").getAsString();
+		} else {
+			messagging.message = parseMessage(object.get(MESSAGE).getAsJsonObject());
+		}
 		return messagging;
 	}
 
-	private static Message parseMessage(JsonObject jsonObject) throws NullPointerException {
+	private static Message parseMessage(JsonObject jsonObject) {
 		Message message = new Message();
-		message.id = jsonObject.get(MESSAGE_ID).getAsString();
-		message.seq = jsonObject.get(MESSAGE_SEQ).getAsBigInteger().intValue();
-		message.text = jsonObject.get(MESSAGE_TEXT).getAsString();
-		if(jsonObject.get(MESSAGE_QUICK_REPLY) != null){
-			message.quickReplyText = jsonObject.get(MESSAGE_QUICK_REPLY).getAsJsonObject().get(MESSAGE_QUICK_REPLY_PAYLOAD).getAsString();
-		} else {
-			message.quickReplyText = null;
+		try {
+			message.id = jsonObject.get(MESSAGE_ID).getAsString();
+			message.seq = jsonObject.get(MESSAGE_SEQ).getAsBigInteger().intValue();
+			message.text = jsonObject.get(MESSAGE_TEXT).getAsString();
+			if(jsonObject.get(MESSAGE_QUICK_REPLY) != null){
+				message.quickReplyText = jsonObject.get(MESSAGE_QUICK_REPLY).getAsJsonObject().get(MESSAGE_QUICK_REPLY_PAYLOAD).getAsString();
+			} else {
+				message.quickReplyText = null;
+			}
+		} catch (NullPointerException e){
+			message = null;
 		}
 		return message;
 	}
