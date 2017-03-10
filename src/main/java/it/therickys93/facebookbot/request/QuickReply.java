@@ -17,8 +17,6 @@ public class QuickReply implements Sendable {
 		this.payload = payload;
 	}
 
-	public static final String TEXT = "text";
-
 	public String type() {
 		return this.type;
 	}

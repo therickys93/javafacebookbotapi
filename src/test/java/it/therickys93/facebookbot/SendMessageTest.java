@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.Test;
 
 import it.therickys93.facebookbot.request.QuickReply;
+import it.therickys93.facebookbot.request.QuickReplyType;
 import it.therickys93.facebookbot.request.SendMessage;
 
 public class SendMessageTest {
@@ -32,7 +33,7 @@ public class SendMessageTest {
 	@Test
 	public void testThree() {
 		List<QuickReply> replies = new ArrayList<QuickReply>();
-		replies.add(new QuickReply(QuickReply.TEXT, "hello", "ciao"));
+		replies.add(new QuickReply(QuickReplyType.TEXT.toString(), "hello", "ciao"));
 		SendMessage message = new SendMessage("USER_ID", "hello my friend");
 		message.addQuickReplies(replies);
 		assertEquals("{\"recipient\":{\"id\":\"USER_ID\"},\"message\":{\"text\":\"hello my friend\",\"quick_replies\":[{\"content_type\":\"text\",\"title\":\"hello\",\"payload\":\"ciao\"}]}}", message.toJson().toString());

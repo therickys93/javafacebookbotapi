@@ -1,9 +1,20 @@
 package it.therickys93.facebookbot.request;
 
-public class SenderAction {
+public enum SenderAction {
 
-	public static final String TYPING_ON = "typing_on";
-	public static final String TYPING_OFF = "typing_off";
-	public static final String MARK_SEEN = "mark_seen";
+	TYPING_ON("typing_on"),
+	TYPING_OFF("typing_off"),
+	MARK_SEEN("mark_seen");
+	
+	private final String action;
+	
+	private SenderAction(String action){
+		this.action = action;
+	}
+	
+	@Override
+	public String toString() {
+		return this.action;
+	}
 
 }
