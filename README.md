@@ -1,5 +1,9 @@
 # Java Facebook Bot API
 
+
+[![Build Status](https://travis-ci.org/therickys93/javafacebookbotapi.svg?branch=master)](https://travis-ci.org/therickys93/javafacebookbotapi)
+
+
 This Api is written for my personal use and so it does not have all the features.
 If you want to make some changes feel free to fork and use it.
 
