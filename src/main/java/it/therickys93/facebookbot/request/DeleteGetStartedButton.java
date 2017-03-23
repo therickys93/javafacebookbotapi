@@ -5,12 +5,15 @@ import com.google.gson.JsonObject;
 
 public class DeleteGetStartedButton implements Sendable {	
 		
+	private static final String FIELDS = "fields";
+	private static final String GET_STARTED = "get_started";
+
 	@Override
 	public JsonObject toJson() {
 		JsonObject object = new JsonObject();
 		JsonArray fields = new JsonArray();
-		fields.add("get_started");
-		object.add("fields", fields);
+		fields.add(GET_STARTED);
+		object.add(FIELDS, fields);
 		return object;
 	}
 

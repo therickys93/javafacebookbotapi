@@ -6,7 +6,9 @@ import com.google.gson.JsonParser;
 
 public class FacebookBotParser {
 
-	private static final String MESSAGE_QUICK_REPLY_PAYLOAD = "payload";
+	private static final String MESSAGING_POSTBACK_PAYLOAD = "payload";
+	private static final String MESSAGING_POSTBACK = "postback";
+	private static final String MESSAGE_QUICK_REPLY_PAYLOAD = MESSAGING_POSTBACK_PAYLOAD;
 	private static final String MESSAGE_QUICK_REPLY = "quick_reply";
 	private static final String MESSAGE_TEXT = "text";
 	private static final String MESSAGE_SEQ = "seq";
@@ -50,8 +52,8 @@ public class FacebookBotParser {
 		messagging.senderId = object.get(MESSAGING_SENDER).getAsJsonObject().get(ENTRY_ID).getAsString();
 		messagging.recipientId = object.get(MESSAGING_RECIPIENT).getAsJsonObject().get(ENTRY_ID).getAsString();
 		messagging.timestamp = object.get(MESSAGING_TIMESTAMP).getAsBigInteger();
-		if(object.get("postback") != null) {
-			messagging.postbackPayload = object.get("postback").getAsJsonObject().get("payload").getAsString();
+		if(object.get(MESSAGING_POSTBACK) != null) {
+			messagging.postbackPayload = object.get(MESSAGING_POSTBACK).getAsJsonObject().get(MESSAGING_POSTBACK_PAYLOAD).getAsString();
 		} else {
 			messagging.message = parseMessage(object.get(MESSAGE).getAsJsonObject());
 		}

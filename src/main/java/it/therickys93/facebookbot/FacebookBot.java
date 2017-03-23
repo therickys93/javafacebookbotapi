@@ -10,7 +10,8 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class FacebookBot {
-
+	
+	private static final String APPLICATION_JSON = "application/json; charset=utf-8";
 	private String token;
 	OkHttpClient client;
 	
@@ -24,7 +25,7 @@ public class FacebookBot {
 	}
 	
 	public String execute(Sendable request) throws IOException {
-		final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+		final MediaType JSON = MediaType.parse(APPLICATION_JSON);
 		RequestBody body = RequestBody.create(JSON, request.toJson().toString());
 		Request requestAdd = new Request.Builder().url(request.endpoint() + this.token).post(body).build();
 		Response response = client.newCall(requestAdd).execute();
