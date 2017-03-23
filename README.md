@@ -39,7 +39,7 @@ public Representation payload(Representation data) throws IOException {
 	String text = payload.entry().messaging().message().text();
 	getLogger().info(text);
 	// do what you want with the text
-	FacebookBot bot = new FacebookBot("TOKEN");
+	FacebookBot bot = new FacebookBot(TOKEN);
 	String response = bot.execute(new SendMessage(chat_id, text));
 	getLogger().info(response);
 	return null;
@@ -61,7 +61,7 @@ allprojects {
 }
 ```
 
-* Finally in your dependencies add: ( this is only a thought )
+* Finally in your dependencies add:
 
 ```
 compile 'com.github.therickys93:javafacebookbotapi:0.1.0'
