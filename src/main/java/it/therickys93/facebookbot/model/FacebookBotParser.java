@@ -4,6 +4,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+/**
+ * class that parse a facebook webhook
+ * @author therickys93
+ *
+ */
 public class FacebookBotParser {
 
 	private static final String MESSAGING_POSTBACK_PAYLOAD = "payload";
@@ -22,7 +27,12 @@ public class FacebookBotParser {
 	private static final String ENTRY_ID = "id";
 	private static final String ENTRY = "entry";
 	private static final String OBJECT = "object";
-
+	
+	/**
+	 * parse the newMessage given as json string and return a Payload object 
+	 * @param newMessage the new message as json string
+	 * @return the payload object
+	 */
 	public static Payload parsePayload(String newMessage) {
 		Payload message = new Payload();
 		JsonParser parser = new JsonParser();

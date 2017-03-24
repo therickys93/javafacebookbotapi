@@ -5,6 +5,11 @@ import java.util.List;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+/**
+ * class that send the message
+ * @author therickys93
+ *
+ */
 public class SendMessage implements Sendable{
 
 	private static final String MESSAGE = "message";
@@ -16,15 +21,28 @@ public class SendMessage implements Sendable{
 	private String text;
 	private List<QuickReply> replies = null;
 	
+	/**
+	 * contructor that create the message
+	 * @param id the id of the person
+	 * @param text the text to send
+	 */
 	public SendMessage(String id, String text) {
 		this.id = id;
 		this.text = text;
 	}
 
+	/**
+	 * return the id of the person
+	 * @return the id of the person
+	 */
 	public String id() {
 		return this.id;
 	}
 
+	/**
+	 * return the text of the person
+	 * @return
+	 */
 	public String text() {
 		return this.text;
 	}
@@ -48,6 +66,10 @@ public class SendMessage implements Sendable{
 		return message;
 	}
 
+	/**
+	 * add a list of quick replies objects
+	 * @param replies the quick replies objects to send with the message
+	 */
 	public void addQuickReplies(List<QuickReply> replies) {
 		this.replies = replies;
 	}

@@ -2,12 +2,21 @@ package it.therickys93.facebookbot.request;
 
 import com.google.gson.JsonObject;
 
+/**
+ * class that sets the Get Started button
+ * @author therickys93
+ *
+ */
 public class SetGetStartedButton implements Sendable {
 
 	private static final String GET_STARTED = "get_started";
 	private static final String PAYLOAD = "payload";
 	private String payload;
 	
+	/**
+	 * create the object with the payload to send back when the button is pressed
+	 * @param payload the payload that facebook send back when the button is pressed
+	 */
 	public SetGetStartedButton(String payload) {
 		this.payload = payload;
 	}
@@ -21,6 +30,10 @@ public class SetGetStartedButton implements Sendable {
 		return get_started;
 	}
 
+	/**
+	 * return the payload
+	 * @return the payload
+	 */
 	public String payload() {
 		return this.payload;
 	}

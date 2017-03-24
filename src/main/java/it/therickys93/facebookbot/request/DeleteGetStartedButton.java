@@ -3,6 +3,11 @@ package it.therickys93.facebookbot.request;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+/**
+ * class that remove the Get Started Button
+ * @author therickys93
+ *
+ */
 public class DeleteGetStartedButton implements Sendable {	
 		
 	private static final String FIELDS = "fields";

@@ -1,11 +1,20 @@
 package it.therickys93.facebookbot.model;
 
+/**
+ * payload from Facebook
+ * @author therickys93
+ *
+ */
 public class Payload {
 
 	String object;
 	Entry entry;
 	boolean ok;
 	
+	/**
+	 * return the object that should be always "page"
+	 * @return the object
+	 */
 	public String object() {
 		return this.object;
 	}
@@ -14,6 +23,10 @@ public class Payload {
 		
 	}
 
+	/**
+	 * return the entry object of the payload
+	 * @return the entry object
+	 */
 	public Entry entry() {
 		return this.entry;
 	}

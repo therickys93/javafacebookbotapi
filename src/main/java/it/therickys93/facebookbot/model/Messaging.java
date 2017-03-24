@@ -2,6 +2,11 @@ package it.therickys93.facebookbot.model;
 
 import java.math.BigInteger;
 
+/**
+ * messaging object from Facebook
+ * @author therickys93
+ *
+ */
 public class Messaging {
 
 	String senderId;
@@ -18,14 +23,26 @@ public class Messaging {
 		
 	}
 	
+	/**
+	 * return the message object
+	 * @return the message object
+	 */
 	public Message message() {
 		return this.message;
 	}
 
+	/**
+	 * return the recipient id
+	 * @return the recipient id
+	 */
 	public String recipientId() {
 		return this.recipientId;
 	}
 
+	/**
+	 * return the timestamp
+	 * @return the timestamp
+	 */
 	public BigInteger timestamp() {
 		return this.timestamp;
 	}
@@ -42,6 +59,10 @@ public class Messaging {
 		return response;
 	}
 
+	/**
+	 * return the payload of the postback
+	 * @return
+	 */
 	public String postbackPayload() {
 		return this.postbackPayload;
 	}
