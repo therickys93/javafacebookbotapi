@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import it.therickys93.facebookbot.request.DeleteGetStartedButton;
 import it.therickys93.facebookbot.request.DeleteGreetingText;
+import it.therickys93.facebookbot.request.Locale;
 import it.therickys93.facebookbot.request.SetGetStartedButton;
 import it.therickys93.facebookbot.request.SetGreetingText;
 
@@ -28,8 +29,9 @@ public class GetStartedButtonTest {
 	
 	@Test
 	public void testThree() {
-		SetGreetingText text = new SetGreetingText("Hello Facebook!");
+		SetGreetingText text = new SetGreetingText("Hello Facebook!", Locale.DEFAULT.toString());
 		assertEquals("Hello Facebook!", text.text());
+		assertEquals("default", text.locale());
 		assertEquals("{\"greeting\":[{\"locale\":\"default\",\"text\":\"Hello Facebook!\"}]}", text.toJson().toString());
 	}
 		
@@ -53,7 +55,7 @@ public class GetStartedButtonTest {
 	
 	public void usageSetGreetingText() throws IOException {
 		FacebookBot bot = new FacebookBot("");
-		String response = bot.execute(new SetGreetingText("text"));
+		String response = bot.execute(new SetGreetingText("text", Locale.DEFAULT.toString()));
 		response.toString();
 	}
 	

@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import it.therickys93.facebookbot.request.DeleteGetStartedButton;
 import it.therickys93.facebookbot.request.DeleteGreetingText;
+import it.therickys93.facebookbot.request.Locale;
 import it.therickys93.facebookbot.request.QuickReply;
 import it.therickys93.facebookbot.request.SendMessage;
 import it.therickys93.facebookbot.request.SendSenderAction;
@@ -26,7 +27,7 @@ public class EndpointTest {
 		assertEquals(profileEndpoint(), new DeleteGetStartedButton().endpoint());
 		assertEquals(profileEndpoint(), new DeleteGreetingText().endpoint());
 		assertEquals(profileEndpoint(), new SetGetStartedButton("").endpoint());
-		assertEquals(profileEndpoint(), new SetGreetingText("").endpoint());
+		assertEquals(profileEndpoint(), new SetGreetingText("", Locale.DEFAULT.toString()).endpoint());
 	}
 	
 	private String messageEndpoint(){

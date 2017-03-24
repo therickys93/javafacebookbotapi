@@ -14,19 +14,22 @@ public class SetGreetingText implements Sendable {
 	private static final String TEXT = "text";
 	private static final String LOCALE = "locale";
 	private String text;
+	private String locale;
 	
 	/**
 	 * constructs the object with the text
 	 * @param text the text to show
+	 * @param locale One of the Locale enum
 	 */
-	public SetGreetingText(String text) {
+	public SetGreetingText(String text, String locale) {
 		this.text = text;
+		this.locale = locale;
 	}
 	
 	@Override
 	public JsonObject toJson() {
 		JsonObject greeting = new JsonObject();
-		greeting.addProperty(LOCALE, "default");
+		greeting.addProperty(LOCALE, this.locale);
 		greeting.addProperty(TEXT, this.text);
 		JsonArray array = new JsonArray();
 		array.add(greeting);
@@ -41,6 +44,10 @@ public class SetGreetingText implements Sendable {
 	 */
 	public String text() {
 		return this.text;
+	}
+	
+	public String locale() {
+		return this.locale;
 	}
 
 	@Override

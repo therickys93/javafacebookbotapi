@@ -3,6 +3,8 @@ package it.therickys93.facebookbot;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import it.therickys93.facebookbot.request.Locale;
 import it.therickys93.facebookbot.request.QuickReplyType;
 import it.therickys93.facebookbot.request.SenderAction;
 
@@ -34,6 +36,13 @@ public class EnumsTest {
 		 assertEquals(1, types.length);
 		 QuickReplyType type = QuickReplyType.valueOf("TEXT");
 		 assertEquals("text", type.toString());
+	 }
+	 
+	 @Test
+	 public void testLocales() {
+		 assertEquals("default", Locale.DEFAULT.toString());
+		 assertEquals("en_US", Locale.ENGLISH.toString());
+		 assertEquals("it_IT", Locale.ITALIAN.toString());
 	 }
 	
 }
