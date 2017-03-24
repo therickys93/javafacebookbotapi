@@ -44,5 +44,13 @@ public class EnumsTest {
 		 assertEquals("en_US", Locale.ENGLISH.toString());
 		 assertEquals("it_IT", Locale.ITALIAN.toString());
 	 }
+	 
+	 @Test
+	 public void improveCodeCoverageLocale() {
+		 Locale[] locales = Locale.values();
+		 assertEquals(3, locales.length);
+		 Locale locale = Locale.valueOf("DEFAULT");
+		 assertEquals("default", locale.toString());
+	 }
 	
 }
