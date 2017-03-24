@@ -16,7 +16,7 @@ public interface Sendable {
 	public String endpoint();
 	/**
 	 * return the json object representation of the request
-	 * @return
+	 * @return the json object of the request
 	 */
 	public JsonObject toJson();
 

@@ -22,7 +22,7 @@ public class FacebookBot {
 	
 	/**
 	 * constructs a Facebook Bot object with the TOKEN
-	 * @param token
+	 * @param token the token that you give
 	 */
 	public FacebookBot(String token) {
 		this.token = token;
@@ -41,7 +41,7 @@ public class FacebookBot {
 	 * send the request to Facebook and return the content
 	 * @param request to send to Facebook
 	 * @return the response of Facebook
-	 * @throws IOException
+	 * @throws IOException the expection if something goes wrong
 	 */
 	public String execute(Sendable request) throws IOException {
 		final MediaType JSON = MediaType.parse(APPLICATION_JSON);

@@ -41,7 +41,7 @@ public class SendMessage implements Sendable{
 
 	/**
 	 * return the text of the person
-	 * @return
+	 * @return the text of the person
 	 */
 	public String text() {
 		return this.text;

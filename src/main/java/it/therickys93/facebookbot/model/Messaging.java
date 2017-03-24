@@ -61,7 +61,7 @@ public class Messaging {
 
 	/**
 	 * return the payload of the postback
-	 * @return
+	 * @return the payload of the postback
 	 */
 	public String postbackPayload() {
 		return this.postbackPayload;
