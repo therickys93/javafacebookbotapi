@@ -1,14 +1,15 @@
 language: java
 jdk:
 - oraclejdk8
-- oraclejdk7
 script:
 - ./gradlew clean check
+after_success:
+- sh set_tags.sh
 deploy:
   provider: releases
   api_key:
     secure: sigFvp5rNHUnR0yGmCLdcNTZvSfpHGtg9lQfIAmrXBjybjHbdo/Wa4lW5aBNugW3/xrm8k6mqz4XEXWT3BrZ3fK2mL0Z3FVunY3R12AAK40ej96ZTOEDMVTbF9MW6vNsb1S9yXF4XOW7YvKHBoEb8oS6AAzOn5CrDsrxq9CJuLsuTbryipflEKnxFygaoM7I0C6kPf9abkEyQXxGvFVPFvEGd1DL5IE8iEjfQrME2YWPSFrI7Oc/9ynH3iVlEztomsxWPpnWjQJDxYqYPS/Kzf8LNMX0tN6Rc9MbTJ2vZ/2krOvyLuGHJkBmuXp9R/YMj8a9plxIAh6DtYBFgxMotmskkv9euOhQdVNrEZYN9pwIAB5rBHgiLfj413c0QVVhr8q1L5rz6PFqcTFMyEQ2e7eTMU6eDMKPb+L6al7PA6WNH/d5o5B7A8YE0nf8heH6l+YuGViAupx+LE3neaNMQ3LNedqOsH75BjtsQeKvu6tkhcxsD7SpP3bYW00Qp+xc1j7d6Ul5hhfxfvuQMuFzACbfuamuTNHCPf4dlAWQ91QNclSWX0e2xaPnKtTBlYL9RSvwPzs29ypM7sg7CDlmIu1Qv4ZaEJtsppsgVKQgdpjWbRn9jIV2TPZq3r8vehKvEx8YyKtyzArNuMWc6lk6hF7khi2/QghALfYBEhCoBfo=
-  file: ''
+  file: 'build.gradle'
   on:
     branch: master
     repo: therickys93/javafacebookbotapi
